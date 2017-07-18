@@ -25,8 +25,7 @@
 <script>
 	function trans(){
 		var data = $("#from").val();
-		var regData = data.replace(/\sproperty="(\w+)">[A-Za-z0-9\s\/?%&=\-,.;''""，。；‘’“”]*<\//g, ">{{$1}}<\/");
-		console.log(regData)
+		var regData = data.replace(/\sproperty="(\w+)">[\s\S][^<]*<\//g, ">{{$1}}<\/");
 		$("#to").val(regData);
 	}
 </script>
