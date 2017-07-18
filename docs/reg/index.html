@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>reg</title>
+	<script src="js/zepto.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<style>
+		div{width:80%;margin:auto;}
+		textarea{width:100%;}
+	</style>
+</head>
+<body>
+	<div class="form-box">
+		<p>mavo代码</p>
+		<textarea name="from" id="from" rows="18"></textarea>
+	</div>
+	<div class="trans">
+		<input type="button" value="生成模板" onclick="trans()">
+	</div>
+	<div class="to-box">
+		<p></p>
+		<textarea name="to" id="to" rows="18"></textarea>
+	</div>
+<script>
+	function trans(){
+		var data = $("#from").val();
+		var regData = data.replace(/\sproperty="(\w+)">[A-Za-z0-9\s\/?%&=\-,.;''""，。；‘’“”]*<\//g, ">{{$1}}<\/");
+		console.log(regData)
+		$("#to").val(regData);
+	}
+</script>
+</body>
+</html>
